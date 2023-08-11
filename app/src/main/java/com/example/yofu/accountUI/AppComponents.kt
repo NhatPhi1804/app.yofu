@@ -1,9 +1,7 @@
 package com.example.yofu.accountUI
 
 import android.util.Log
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -32,7 +30,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.SpanStyle
@@ -47,6 +44,8 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.yofu.R
@@ -73,6 +72,41 @@ fun NormalTextComponent(value: String)
             fontStyle = FontStyle.Normal
         ),
         textAlign = TextAlign.Center
+    )
+}
+
+@Composable
+fun NotCenterNormalTextComponent(value: String, size: TextUnit)
+{
+    Text(
+        text = value,
+        modifier = Modifier
+            .fillMaxWidth()
+            .heightIn(min = 40.dp),
+        fontFamily = normalFont,
+        style = TextStyle(
+            fontSize = size,
+            fontWeight = FontWeight.Normal,
+            fontStyle = FontStyle.Normal
+        ),
+    )
+}
+
+@Composable
+fun NormalTextComponentWithSize(value: String, size: TextUnit)
+{
+    Text(
+        text = value,
+        modifier = Modifier
+            .fillMaxWidth()
+            .heightIn(min = 40.dp),
+        fontFamily = normalFont,
+        textAlign = TextAlign.Center,
+        style = TextStyle(
+            fontSize = size,
+            fontWeight = FontWeight.Normal,
+            fontStyle = FontStyle.Normal
+        ),
     )
 }
 
@@ -159,7 +193,7 @@ fun TextFieldComponent(labelValue: String)
         keyboardOptions = KeyboardOptions.Default,
         shape = RoundedCornerShape(50.dp),
         value = textValue.value,
-
+        singleLine = true,
         onValueChange = {
             textValue.value = it
         },
@@ -319,4 +353,42 @@ fun ClickableLoginTextComponent(onTextSelected:(String) ->Unit)
 
 
         })
+}
+
+@Composable
+fun NotCenterBoldTextComponent(value: String)
+{   val extraBoldFont = FontFamily(
+    Font(R.font.raleway_bold, FontWeight.Bold),
+)
+    Text(
+        text = value,
+        modifier = Modifier
+            .fillMaxWidth()
+            .heightIn(min = 40.dp),
+        fontFamily = extraBoldFont,
+        style = TextStyle(
+            fontSize = 27.sp,
+            fontWeight = FontWeight.Normal,
+            fontStyle = FontStyle.Normal,
+        ),
+    )
+}
+
+@Composable
+fun NotCenterBoldTextComponentWithSize(value: String, size: TextUnit)
+{   val extraBoldFont = FontFamily(
+    Font(R.font.raleway_bold, FontWeight.Bold),
+)
+    Text(
+        text = value,
+        modifier = Modifier
+            .fillMaxWidth()
+            .heightIn(min = 40.dp),
+        fontFamily = extraBoldFont,
+        style = TextStyle(
+            fontSize = size,
+            fontWeight = FontWeight.Normal,
+            fontStyle = FontStyle.Normal,
+        ),
+    )
 }
