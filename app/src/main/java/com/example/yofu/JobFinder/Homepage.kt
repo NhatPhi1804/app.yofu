@@ -1,8 +1,8 @@
 @file:OptIn(ExperimentalMaterialApi::class)
 package com.example.yofu.jobFinder
 
-import com.example.yofu.accountManage.normalFont
-import com.example.yofu.accountManage.extraBoldFont
+import com.example.yofu.accountUI.normalFont
+import com.example.yofu.accountUI.extraBoldFont
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
